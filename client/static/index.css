@@ -1,0 +1,106 @@
+body {
+    background-color: #07077A;
+    color: #FFF;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 32px;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-align: center;
+}
+
+.avatar {
+    /* float: right; */
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+.hero {
+    font-size: 24px;
+    margin-top: 100px;
+}
+
+.navigation {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    color: #FFF;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.signup-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #FFF;
+    color: #07077A !important;
+    border: none;
+    cursor: pointer;
+}
+
+.signin-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #07077A;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+}
+.logout-btn {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #FFF;
+    color: #07077A;
+    border: none;
+    cursor: pointer;
+}
+
+
+.form-container {
+    margin-top: 40px;
+    position: relative;
+}
+
+.form-container input {
+    width: 300px;
+    height: 30px;
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.form-container button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #FFF;
+    color: #07077A;
+    border: none;
+    cursor: pointer;
+}
+
+#resultContainer {
+    margin-top: 20px;
+    text-align: center;
+    color: #FFF;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us - E-validify</title>
+    <style>
+        body {
+            background-color: #07077A;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 800;
+            font-size: 32px;
+            margin-top: 20px;
+        }
+        
+        .form-container {
+            margin-top: 40px;
+        }
+        
+        .form-container input,
+        .form-container textarea {
+            width: 300px;
+            margin: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        
+        .form-container button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #FFF;
+            color: #07077A;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .navigation {
+            margin-top: 20px;
+            text-align: right;
+        }
+        
+        .navigation a {
+            color: #FFF;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">E-validify</div>
+        <div class="navigation">
+            <a href="/login">Sign In</a>
+            <a href="/signup">Sign Up</a>
+        </div>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <form>
+                <input type="text" placeholder="Name" required>
+                <br>
+                <input type="email" placeholder="Email address" required>
+                <br>
+                <textarea placeholder="Message" rows="5" required></textarea>
+                <br>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        
+        
+    </div>
+</body>
+</html>
