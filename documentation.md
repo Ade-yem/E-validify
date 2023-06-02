@@ -1,6 +1,20 @@
 # E-validify Project Documentation
 
-The E-validify project is a web application that allows users to validate email addresses using the E-mail Check Invalid or Disposable Domain API. The application also provides user authentication functionalities such as login, logout, and signup. It is built using the Flask web framework, Flask-CORS for cross-origin resource sharing, and Flask-Login for user authentication.
+E-validify is a web application that provides email validation services. It is built using Python and Flask framework. The application allows users to sign up, sign in, and update their profile information. It also provides the functionality to delete a user account.
+
+The application uses a MySQL database to store user information and SQLAlchemy as the ORM. The database is accessed through a custom storage class that provides methods for querying, adding, updating, and deleting objects from the database.
+
+The application uses Flask-Login to manage user authentication and authorization. Passwords are encrypted using the md5 algorithm before being stored in the database.
+
+The email validation service is provided by a third-party API called E-mail Check Invalid or Disposable Domain. The API is accessed using the RapidAPI platform.
+
+The application is structured using the Model-View-Controller (MVC) design pattern. The models are defined in separate files and inherit from a base model class that provides common functionality such as saving and deleting objects. The views are defined in separate files and provide the endpoints for the API. The controllers are defined in separate files and provide the logic for handling requests and responses.
+
+The application is documented using Swagger. The documentation provides information about the endpoints, their parameters, and their responses. It also provides information about the data models used in the application.
+
+Overall, E-validify is a simple and easy-to-use email validation service that provides basic user management functionality.
+
+
 
 ## Table of Contents
 
@@ -61,7 +75,7 @@ The E-validify project uses the E-mail Check Invalid or Disposable Domain API fr
 
 The E-validify application provides user authentication functionalities using Flask-Login.
 
-- User Registration: Users can sign up for an account by providing their email address, username, and password.
+- User Registration: Users can sign up for an account by providing their email address, username, names and password.
 
 - User Login: Registered users can log in to the application using their email and password.
 
@@ -76,6 +90,9 @@ The E-validify project exposes the following API endpoints:
     - `email`: The user's email address.
     - `username`: The desired username.
     - `password`: The user's password.
+    - `first_name`: The user's first name.
+    - `last_name`: The user's last name.
+
   - Response:
     - `200 OK`: User account created successfully.
     - `400 Bad Request`: Invalid request parameters.
@@ -93,7 +110,20 @@ The E-validify project exposes the following API endpoints:
     - `200 OK`: User logged out successfully.
     - `401 Unauthorized`: User not logged in.
 
-- `POST /validate-email`: Validate an email address using the E-mail Check Invalid or Disposable Domain API.
+- `POST /validate`: Validate an email address using the E-mail Check Invalid or Disposable Domain API.
+  - Request body parameters:
+    - `email`: The email address to validate.
+  - Response:
+    - `200
+
+ OK`: Email address validated successfully.
+      - Response body:
+        - `is_valid`: Boolean indicating if the email is valid.
+        - `is_disposable`: Boolean indicating if the email is from a disposable domain.
+    - `400 Bad Request`: Invalid request parameters.
+    - `401 Unauthorized`: User not logged in.
+
+- `POST /validate-guest`: Validate an email address for guest user using the E-mail Check Invalid or Disposable Domain API.
   - Request body parameters:
     - `email`: The email address to validate.
   - Response:
@@ -122,3 +152,7 @@ Error responses are returned in JSON format and include an error message describ
 The E-validify project is a Flask-based web application that allows users to validate email addresses using the E-mail Check Invalid or Disposable Domain API. It provides user authentication functionalities for user registration, login, and logout. The project is built using Flask, Flask-CORS, and Flask-Login, and it follows RESTful principles for API design.
 
 By following the installation and configuration steps outlined in this documentation, you can set up and run the E-validify project on your local environment. Use the provided endpoints to interact with the API and validate email addresses effectively.
+
+## Authors
+- Adeyemi Adejumo - [email] (adejumoadeyemi32@gmail.com)
+- Princewill Onyema - [email] (Princewillodinakachukwu@gmail.com)
