@@ -7,6 +7,11 @@ from hashlib import md5
 from flask_login import login_user, logout_user, login_required, current_user, LoginManager
 
 
+@login_required
+def create_session():
+ login_user(user)
+
+
 @app_auth.route('/signup', methods=['POST'], strict_slashes=False)
 def sign_up():
     """Creates a user"""
@@ -27,22 +32,23 @@ def sign_up():
         return jsonify({'message': 'Email already exists'}), 400
     # Create a new user
     instance = User(**data)
+    instance.is_authenticated = True
     instance.save()
     return make_response(jsonify({'message': f'User {username} created successfully',
-                                   'user': instance.to_dict()}), 201)
+                                   'username': username, 'id': instance.id}), 201)
 
 
 @app_auth.route('/signin', methods=['POST'], strict_slashes=False)
 def sign_in():
     data = request.get_json()
-    username = data.get('username')
+    email = data.get('email')
     password = data.get('password')
     # remember = True if data.get('remember') else False
     users = storage.all(User).values()
     for user in users:
-        if user.username == username and user.password == md5(password.encode()).hexdigest():
+        if user.email == email and user.password == md5(password.encode()).hexdigest():
             login_user(user)
-            return jsonify({'message': 'Sign in successful', "user": user.to_dict()}), 200
+            return jsonify({'message': 'Sign in successful', "username": user.username, 'id': user.id}), 200
 
     return jsonify({'message': 'Invalid credentials'}), 401
 

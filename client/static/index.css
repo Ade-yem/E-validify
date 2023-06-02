@@ -1,106 +1,197 @@
-body {
-    background-color: #07077A;
-    color: #FFF;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 40px;
-    text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  /* background-color: #4e858a; */
+  background-color: rgb(78, 133, 138);
+  background: linear-gradient(NaNdeg, rgba(78, 133, 138, 1) 20%, rgba(100, 162, 167, 1) 75%);
 }
+
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: 800;
-    font-size: 32px;
-    margin-top: 20px;
-    margin-left: 20px;
-    text-align: center;
+  background-color: #47d052;
+  padding: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  opacity: 0.7;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
 }
 
-.avatar {
-    /* float: right; */
-    margin-right: 20px;
-    margin-left: 20px;
+header h1 {
+  color: #000009;
+  font-size: 24px;
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+}
+
+nav ul {
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+}
+
+nav ul li a:hover {
+  background-color: #ded4d4;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+div.avatar {
+  cursor: pointer;
+  color: #fff;
+}
+button.logout-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-left: 10px;
+}
+main {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.7);
+  height: 567px;
 }
 
 .hero {
-    font-size: 24px;
-    margin-top: 100px;
+  text-align: center;
 }
 
-.navigation {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
+.hero h3 {
+  font-size: 20px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 
-.navigation a {
-    color: #FFF;
-    text-decoration: none;
-    margin-left: 20px;
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.signup-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #FFF;
-    color: #07077A !important;
-    border: none;
-    cursor: pointer;
+input[type="email"] {
+  padding: 10px;
+  width: 50%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-.signin-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #07077A;
-    color: #FFF;
-    border: none;
-    cursor: pointer;
-}
-.logout-btn {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #FFF;
-    color: #07077A;
-    border: none;
-    cursor: pointer;
+button[type="submit"] {
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-
-.form-container {
-    margin-top: 40px;
-    position: relative;
+button[type="submit"]:hover {
+  background-color: #555;
 }
 
-.form-container input {
-    width: 300px;
-    height: 30px;
-    margin: 10px;
-    padding: 5px;
-    font-size: 16px;
+.snap {
+  text-align: center;
+  font-size: 60px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  border-radius: 10px;
+  /* height: 200px; */
+  padding: 40px;
 }
 
-.form-container button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #FFF;
-    color: #07077A;
-    border: none;
-    cursor: pointer;
+section#result h3{
+  text-align: center;
+  color: whitesmoke;
+}
+div.results{
+  color: whitesmoke;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+div.results p {
+  width: 30%;
+  margin: 10px;
+  padding: 10px;
+}
+footer {
+  background-color: #47d052;
+  padding: 10px;
+  text-align: center;
+  color: #ffffff;
+  opacity: 0.7;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
 }
 
-#resultContainer {
-    margin-top: 20px;
-    text-align: center;
-    color: #FFF;
+@media screen and (max-width: 1000px) {
+  main {
+    margin: 20px;
+    /* height: auto; */
+  }
+  .snap {
+    font-size: 45px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  header {
+    padding: 10px;
+  }
+
+  nav ul li {
+    margin-right: 15px;
+  }
+
+  main {
+    margin: 20px;
+    /* height: auto; */
+  }
+  .snap {
+    font-size: 45px;
+  }
+
+  form {
+    flex-direction: column;
+  }
+
+  input[type="email"] {
+    width: 80%;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  input[type="email"] {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .snap {
+    font-size: 25px;
+  }
 }

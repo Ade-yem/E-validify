@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    /* background-color: #4e858a; */
+    background-color: rgb(78, 133, 138);
+    background: linear-gradient(NaNdeg, rgba(78, 133, 138, 1) 20%, rgba(100, 162, 167, 1) 75%);
+  }
+  
+  
+  header {
+    background-color: #47d052;
+    padding: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    opacity: 0.7;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    color: #000009;
+    font-size: 24px;
+    display: inline-block;
+    font-family: 'Playfair Display', serif;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin-top: 10px;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 30px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px;
+  }
+  
+  nav ul li a:hover {
+    background-color: #ded4d4;
+    border-radius: 10px;
+    opacity: 0.7;
+  }
+  div.avatar {
+    cursor: pointer;
+    color: #fff;
+  }
+  button.logout-btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-left: 10px;
+  }
+  main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.7);
+    height: 567px;
+    max-height: max-content;
+  }
+  section.welcome h1{
+    text-align: center;
+  font-size: 60px;
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  border-radius: 10px;
+  /* height: 200px; */
+  padding: 40px;
+}
+  ul.emails {
+    list-style-type: none;
+    padding: 10px;
+  }
+  li.email-box {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+  }
+  div.email-details {
+    visibility: hidden;
+  }
+  footer {
+    background-color: #47d052;
+    padding: 10px;
+    text-align: center;
+    color: #ffffff;
+    opacity: 0.7;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+  }  

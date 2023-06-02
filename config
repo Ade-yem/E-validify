@@ -1,2 +1,1 @@
 MYSQL_USER=validify MYSQL_PWD=validify_pwd MYSQL_HOST=localhost MYSQL_DB=validify_db API_KEY=6f999abc05msha0292f7decce763p1bcbe4jsn9fbbb20e0536 API_HOST=mailcheck.p.rapidapi.com python -m api.v1.app
-

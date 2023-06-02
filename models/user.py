@@ -19,6 +19,7 @@ class User(BaseModel, Base):
     first_name = Column(String(128), nullable=True)
     last_name = Column(String(128), nullable=True)
     is_active = Column(Boolean, default=True)
+    is_authenticated = Column(Boolean, default=True)
     emails = relationship("Email", backref="user")
 
     def __init__(self, *args, **kwargs):
@@ -39,3 +40,4 @@ class User(BaseModel, Base):
     def is_active(self):
         """returns True if the user is active"""
         return True
+    

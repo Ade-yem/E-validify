@@ -1,41 +1,50 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-validify</title>
+    <link rel="stylesheet" href="static/index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="static/index.css">
-</head>
-<body>
-	<header>
-		
-		<div class="logo">E-validify</div>  
-		<div class="navigation">
-            <a href="contact.html">Contact Us</a>
-            <a href="signup.html" class="signup-btn">Sign Up</a>
-    		<a href="login.html" class="signin-btn">Sign In</a>
-            <button class="logout-btn">Log out</button>
-			<div class="avatar">John Doe</div>
+    <script src="static/scripts/index.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>E-Validify</h1>
+      <nav>
+        <ul>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+    		  <li><a href="login.html" class="signin-btn">Sign In</a></li>
+          <li><button class="logout-btn">Log out</button></li>
+			    <li><div class="avatar">&nbsp;</div></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <div class="snap">
+          <p>Verify email addresses in a snap</p>
         </div>
-	</header>
-    <div class="container">
+      </section>
+      <section class="hero">
+        <h3>Validate your email address</h3>
+        <form id="emailForm" method="post">
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Enter your email address"
+            required
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+      <section id="result">
         
-        
-        <div class="hero">
-            <p>Validate your emails in a snap with E-validify</p>
-        </div>
-        
-		<div class="form-container">
-			<form id="emailForm">
-				<input type="email" id="emailInput" placeholder="Enter your email address" required>
-				<br>
-				<button type="submit">Verify Email</button>
-			</form>
-			<div id="resultContainer"></div>
-		</div>
-		
-        
-        
-    </div>
-</body>
-</body>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Email Validator. All rights reserved.</p>
+    </footer>
+  </body>
 </html>

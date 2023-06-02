@@ -15,13 +15,13 @@ secret_key = secrets.token_hex(32)
 app = Flask(__name__)
 app.secret_key = secret_key
 login_manager = LoginManager()
-login_manager.init_app(app)
 
 
 @login_manager.user_loader
 def load_user(user_id):
     return storage.get(User, user_id)
-
+    
+login_manager.init_app(app)
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 app.register_blueprint(app_views)
 app.register_blueprint(app_auth)
