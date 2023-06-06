@@ -10,7 +10,7 @@
   </head>
   <body>
     <header>
-      <h1>E-Validify</h1>
+      <h1 style="cursor: pointer;" onclick="window.location.href='index.html'">E-Validify</h1>
       <nav>
         <ul>
           <li><a href="contact.html">Contact Us</a></li>
@@ -29,10 +29,11 @@
       </section>
       <section class="hero">
         <h3>Validate your email address</h3>
-        <form id="emailForm" method="post">
+        <form id="emailForm">
           <input
             type="email"
             id="emailInput"
+            name="email"
             placeholder="Enter your email address"
             required
           />
@@ -44,7 +45,7 @@
       </section>
     </main>
     <footer>
-      <p>&copy; 2023 Email Validator. All rights reserved.</p>
+      <p>&copy; 2023    E-validify. All rights reserved.</p>
     </footer>
   </body>
 </html>

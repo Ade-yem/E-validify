@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Toggle the visibility of the buttons based on the user's login status
   if (isLoggedIn) {
-    signUpBtn.style.display = 'none';
-    signInBtn.style.display = 'none';
-    logOutBtn.style.display = 'block';
-    avatar.innerHTML = window.localStorage.getItem('username')[0].toUpperCase();
-
+    signUpBtn.style.visibility = 'hidden';
+    signInBtn.style.visibility = 'hidden';
+    logOutBtn.style.visibility = 'visible';
+    avatar.innerHTML = window.localStorage.getItem('username');
   } else {
-    signUpBtn.style.display = 'block';
-    signInBtn.style.display = 'block';
-    logOutBtn.style.display = 'none';
+    signUpBtn.style.visibility = 'visible';
+    signInBtn.style.visibility = 'visible';
+    logOutBtn.style.visibility = 'hidden';
   }
 
   avatar.addEventListener('click', function () {
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch('http://localhost:5000/api/v1/auth/logout', {
+    fetch('http://localhost:3000/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -36,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function () {
           window.localStorage.removeItem('loggedIn');
           window.localStorage.removeItem('username');
           window.localStorage.removeItem('user_id');
-          window.location.replace = '../index.html';
+          window.location.replace = 'index.html';
+          // reload the page
+          window.location.reload();
         }
         return response.json();
       })
@@ -49,57 +50,44 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       );
   });
+
   document.querySelector('form#emailForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const email = document.querySelector('form#emailForm').elements.email.value;
     const data = {
       email: email
     };
-    if (isLoggedIn) {
-      fetch('http://localhost:5000/api/v1/validate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+    fetch('http://localhost:3000/validate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+      .then(response => {
+        if (response.status === 200) {
+          console.log('Email sent');
+        }
+        return response.json();
       })
-        .then(response => {
-          if (response.status === 200) {
-            console.log('Email sent');
-          }
-          return response.json();
-        })
-        .then(data => appendData(data))
-        .catch(error => {
-          console.error('Error: ', error);
-        });
-    } else {
-      fetch('http://localhost:5000/api/v1/validate_guest', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      })
-        .then(response => {
-          if (response.status === 200) {
-            console.log('Email sent');
-          }
-          return response.json();
-        })
-        .then(data => appendData(data))
-        .catch(error => {
-          console.error('Error: ', error);
-        });
-    }
+      .then(data => appendData(data.result))
+      .catch(error => {
+        console.error('Error: ', error);
+      });
 
+    const ignore = ['possible_typo', 'last_changed_at'];
     const appendData = (data) => {
       const container = document.querySelector('section#result');
+      container.innerHTML = '';
       container.appendChild(document.createElement('h3'));
       container.querySelector('h3').innerHTML = 'Result';
       container.appendChild(document.createElement('div'));
       container.querySelector('div').classList.add('results');
       const cont = container.querySelector('div.results');
       for (const key in data) {
-        const p = document.createElement('p');
-        p.innerHTML = `${key}: ${data[key]}`;
-        cont.appendChild(p);
+        if (!ignore.includes(key)) {
+          const p = document.createElement('p');
+          p.innerHTML = `${key}: ${data[key]}`;
+          cont.appendChild(p);
+        }
       }
     };
   });

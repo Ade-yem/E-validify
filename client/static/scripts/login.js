@@ -1,26 +1,33 @@
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelector('form#login').addEventListener('submit', function (event) {
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('form#login').addEventListener('submit', function(event) {
     event.preventDefault();
     const login = document.querySelector('form#login');
-    const username = login.elements.email.value;
+    const email = login.elements.email.value;
     const password = login.elements.password.value;
     const data = {
-      username: username, password: password
+      email: email,
+      password: password
     };
 
-    fetch('http://localhost:5000/api/v1/auth/signin', {
+    fetch('http://localhost:3000/login', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(data)
     })
       .then(response => {
-        if (response.status === 200) {
+        if (response.ok) {
+          console.log('Login successful');
           window.localStorage.setItem('loggedIn', true);
-          window.location.href('index.html');
+          window.localStorage.setItem('username', data.username);
+          window.localStorage.setItem('user_id', data.id);
+          window.location.href = 'index.html';
         }
         return response.json();
       })
       .then(data => {
+        // console.log(data);
         window.localStorage.setItem('username', data.username);
         window.localStorage.setItem('user_id', data.id);
       })

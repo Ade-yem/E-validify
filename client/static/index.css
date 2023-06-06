@@ -70,7 +70,7 @@ main {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.7);
-  height: 567px;
+  height: 100vh;
 }
 
 .hero {
@@ -124,15 +124,24 @@ button[type="submit"]:hover {
 section#result h3{
   text-align: center;
   color: whitesmoke;
+  margin: 20px;
+
 }
 div.results{
-  color: whitesmoke;
+  color: black;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background-color: white;
+  max-width: 800px;
+  border: none;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  margin: auto;
+  margin-bottom: 20px;
 }
 div.results p {
-  width: 30%;
+  width: 40%;
   margin: 10px;
   padding: 10px;
 }
@@ -144,7 +153,6 @@ footer {
   opacity: 0.7;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
-  /* position: absolute; */
   bottom: 0;
   width: 100%;
 }
@@ -152,7 +160,6 @@ footer {
 @media screen and (max-width: 1000px) {
   main {
     margin: 20px;
-    /* height: auto; */
   }
   .snap {
     font-size: 45px;
@@ -170,7 +177,6 @@ footer {
 
   main {
     margin: 20px;
-    /* height: auto; */
   }
   .snap {
     font-size: 45px;
@@ -184,12 +190,18 @@ footer {
     width: 80%;
     margin-bottom: 10px;
   }
+  div.results{
+    width: 80%;
+  }
 }
 
 @media screen and (max-width: 400px) {
   input[type="email"] {
     width: 100%;
     margin-bottom: 10px;
+  }
+  div.results{
+    width: 100%;
   }
   .snap {
     font-size: 25px;
