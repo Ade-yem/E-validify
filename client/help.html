@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Validify - Secure Email Validation Made Easy</title>
+  <link rel="stylesheet" href="static/help.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <h1 onclick="window.location.href ='index.html'">E-Validify</h1>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#signup">Sign Up</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+      <div class="menu" onclick="openNav()"><i class="fa fa-bars" aria-hidden="true"></i></div>
+      <div class="overlay">
+        <div class="close" onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="overlay-content">
+          <a href="#features">Features</a>
+          <a href="#signup">Sign Up</a>
+          <a href="#about">About Us</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+  <main>
+  <section class="hero">
+    <div class="container">
+      <h2>Validate Your Emails with Confidence</h2>
+      <p>E-Validify is a powerful and user-friendly web application that allows you to validate the contents of your emails effortlessly. With advanced algorithms and robust security measures, E-Validify ensures that your emails meet the highest standards and are free from potential vulnerabilities.</p>
+      <a href="#signup" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="container">
+      <h3>Key Features</h3>
+      <div class="feature">
+        <h4>Email Validation</h4>
+        <p>Easily validate your emails to ensure they comply with industry standards. Our intelligent algorithm analyzes the email contents, checks for common errors, and provides detailed feedback on any issues found.</p>
+      </div>
+      <div class="feature">
+        <h4>User-Friendly Interface</h4>
+        <p>Our intuitive and sleek user interface makes it simple to navigate through the application. Whether you're a tech-savvy professional or a novice user, E-Validify offers a seamless experience.</p>
+      </div>
+      <div class="feature">
+        <h4>Secure Data Handling</h4>
+        <p>We prioritize the security of your personal information. E-Validify utilizes state-of-the-art encryption and follows industry best practices to safeguard your data.</p>
+      </div>
+      <div class="feature">
+        <h4>User Management</h4>
+        <p>Register an account with E-Validify to access additional features and keep track of your validation history. Manage your profile, view past validations, and enjoy a personalized experience.</p>
+      </div>
+    </div>
+  </section>
+  <section id="how-to">
+    <div class="container">
+      <h3>How to use E-Validify</h3>
+      <p>To use E-Validify, simply enter the email address you want to validate into the form below and click "Validate."</p>
+      <form action="/validate" method="post">
+        <input type="email" name="email" placeholder="Enter email address" class="form-control">
+        <input type="submit" value="Validate" class="btn">
+      </form>
+    </div>
+  </section>
+
+  <section id="signup">
+    <div class="container">
+      <h3>Get Started Today</h3>
+      <p>Join thousands of users who have already experienced the power of E-Validify. Sign up for an account and start validating your emails with confidence.</p>
+      <a href="signup.html" class="btn">Sign Up Now</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h3>About Us</h3>
+      <p>At E-Validify, we are passionate about creating reliable and user-friendly solutions for email validation. Our team of experienced professionals combines expertise in web development, UI/UX design, and database management to deliver a seamless user experience.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h3>Contact Us</h3>
+      <p>Have questions or need support? Our team is here to help. Reach out to us at <a href="mailto:support@e-validify.com">support@e-validify.com</a> or visit our Help Center for more information.</p>
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 E-Validify. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+    function openNav() {
+      document.querySelector(".overlay").style.width = "300px";
+      document.querySelector("main").style.marginRight = "300px";
+    }
+    function closeNav() {
+      document.querySelector(".overlay").style.width = "0";
+      document.querySelector("main").style.marginRight = "0";
+    }
+  </script>
+</body>
+
+</html>
