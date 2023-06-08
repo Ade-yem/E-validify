@@ -1,0 +1,15 @@
+{
+  "name": "e-validify",
+  "version": "1.0.0",
+  "description": "E-Validify is a web application that allows users to register, login, and validate email contents. It provides a user-friendly interface for managing user accounts, sending emails for validation, and viewing previously sent emails.",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd server && npm install",
+    "start-server": "cd server && node app.js",
+    "install-client": "cd client && npm install",
+    "start-client": "cd client && npm run start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
