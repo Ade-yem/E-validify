@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         password: password
       };
 
-      fetch('http://localhost:3000/register', {
+      fetch('http://localhost:5000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

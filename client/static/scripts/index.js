@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch('http://localhost:3000/logout', {
+    fetch('http://localhost:5000/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })

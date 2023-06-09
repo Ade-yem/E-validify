@@ -118,7 +118,7 @@ app.post('/login', async (req, res) => {
     // Create a session after login
     req.session.user = user;
     // User login successful
-    res.json({ message: 'User logged in successfully', user_id: user.id });
+    res.json({ message: 'User logged in successfully', user: user });
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Internal server error' });

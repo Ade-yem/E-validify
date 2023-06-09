@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('title').innerHTML = `${window.localStorage.getItem('username')} | E-validify`;
   document.querySelector('section.welcome h1').innerHTML = `Welcome ${window.localStorage.getItem('username')}`;
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch('http://localhost:3000/logout', {
+    fetch('http://localhost:5000/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
