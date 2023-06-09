@@ -8,6 +8,7 @@ const crypto = require('crypto');
 // import User and Email models
 const User = require('./models/userModel.js');
 const Email = require('./models/emailModel.js');
+const MongoBDStore = require('connect-mongodb-session')(session);
 
 const generateSecretKey = () => {
   return crypto.randomBytes(32).toString('hex');
@@ -18,7 +19,18 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+// connect to mongodbstore
+const store = new MongoBDStore({
+  uri: process.env.mongoURI,
+  collection: 'sessions'
+});
+store.on('error', function (error) {
+  console.log(error);
+});
+
+
 // create app session
+
 app.use(
   session({
     secret: generateSecretKey(),
@@ -26,7 +38,8 @@ app.use(
     saveUninitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60 // 1 hour
-    }
+    },
+    store: store
   })
 );
 
