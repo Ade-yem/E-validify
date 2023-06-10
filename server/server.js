@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const fetch = require("node-fetch");
+const axios = require("axios");
 const session = require("express-session");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
@@ -137,8 +137,8 @@ app.post('/validate', async (req, res) => {
         'X-RapidAPI-Host': process.env.API_HOST
       }
     };
-    // Fetch the response from the API
-    const response = await fetch(url, options);
+    // use axios to get the response from the API
+    const response = await axios.get(url, options);
     const result = await response.json();
     if (isAuthenticated) {
       // Save the email to the database
