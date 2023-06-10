@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       password: password
     };
 
-    fetch('http://localhost:5000/login', {
+    fetch(`${process.env.BACKEND_URL}/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch('http://localhost:5000/logout', {
+    fetch(`${process.env.BACKEND_URL}/logout`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       email: email
     };
-    fetch('http://localhost:3000/validate', {
+    fetch(`${process.env.BACKEND_URL}/validate`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)

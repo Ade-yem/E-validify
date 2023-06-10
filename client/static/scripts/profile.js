@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('title').innerHTML = `${window.localStorage.getItem('username')} | E-validify`;
   document.querySelector('section.welcome h1').innerHTML = `Welcome ${window.localStorage.getItem('username')}`;
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch('http://localhost:5000/logout', {
+    fetch(`${process.env.BACKEND_URL}/logout`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Get user data
-  fetch("http://localhost:3000/user", {
+  fetch(`${process.env.BACKEND_URL}/user`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error('Error: ', error);
     });
-  fetch("http://localhost:3000/emails", {
+  fetch(`${process.env.BACKEND_URL}/emails`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
