@@ -142,8 +142,8 @@ app.post('/validate', async (req, res) => {
     };
     // use axios to get the response from the API
     const response = await axios.request(options);
-    const result = await response.json();
-    console.log(response.json);
+    const result = await response.data;
+    console.log(result);
     if (isAuthenticated) {
       // Save the email to the database
       const newEmail = await Email.create({
