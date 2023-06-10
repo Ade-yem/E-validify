@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  require("dotenv").config();
   document.querySelector('title').innerHTML = `${window.localStorage.getItem('username')} | E-validify`;
   document.querySelector('section.welcome h1').innerHTML = `Welcome ${window.localStorage.getItem('username')}`;
   document.querySelector('.logout-btn').addEventListener('click', function () {

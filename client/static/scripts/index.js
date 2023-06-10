@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  require("dotenv").config();
   // Get the sign up, sign in, and log out buttons
   const signUpBtn = document.querySelector('.signup-btn');
   const signInBtn = document.querySelector('.signin-btn');

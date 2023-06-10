@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+  require("dotenv").config();
   document.querySelector('form#login').addEventListener('submit', function(event) {
     event.preventDefault();
     const login = document.querySelector('form#login');

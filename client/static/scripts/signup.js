@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+  require("dotenv").config();
   document.querySelector('form#signup').addEventListener('submit', function (event) {
     event.preventDefault();
 
