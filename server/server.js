@@ -19,7 +19,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  origin: process.env.FRONTEND_URL, // frontend URI (ReactJS)
+  origin: process.env.FRONTEND_URL,
 }
 app.use(cors(corsOptions));
 app.use(express.urlencoded({ extended: true }));
@@ -131,7 +131,7 @@ app.post('/validate', async (req, res) => {
     // Create url options for the fetch request
     const options = {
       method: 'GET',
-      url = `https://mailcheck.p.rapidapi.com/,
+      url: 'https://mailcheck.p.rapidapi.com/',
       params: {
         domain: email
       },
