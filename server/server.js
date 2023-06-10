@@ -129,17 +129,21 @@ app.post('/validate', async (req, res) => {
     const { email } = req.body;
     const isAuthenticated = req.session.user!== undefined;
     // Create url options for the fetch request
-    const url = `https://mailcheck.p.rapidapi.com/?domain=${email}`;
     const options = {
       method: 'GET',
+      url = `https://mailcheck.p.rapidapi.com/,
+      params: {
+        domain: email
+      },
       headers: {
         'X-RapidAPI-Key': process.env.API_KEY,
         'X-RapidAPI-Host': process.env.API_HOST
       }
     };
     // use axios to get the response from the API
-    const response = await axios.get(url, options);
+    const response = await axios.request(options);
     const result = await response.json();
+    console.log(response.json);
     if (isAuthenticated) {
       // Save the email to the database
       const newEmail = await Email.create({
