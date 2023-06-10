@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function() {
-  require("dotenv").config();
   document.querySelector('form#login').addEventListener('submit', function(event) {
     event.preventDefault();
     const login = document.querySelector('form#login');
@@ -10,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
       password: password
     };
 
-    fetch(`${process.env.BACKEND_URL}/login`, {
+    fetch('https://e-validify-backend.onrender.com/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

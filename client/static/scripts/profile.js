@@ -1,9 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-  require("dotenv").config();
   document.querySelector('title').innerHTML = `${window.localStorage.getItem('username')} | E-validify`;
   document.querySelector('section.welcome h1').innerHTML = `Welcome ${window.localStorage.getItem('username')}`;
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch(`${process.env.BACKEND_URL}/logout`, {
+    fetch('https://e-validify-backend.onrender.com/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -30,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // Get user data
-  fetch(`${process.env.BACKEND_URL}/user`, {
+  fetch("https://e-validify-backend.onrender.com/user", {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -46,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     .catch(error => {
       console.error('Error: ', error);
     });
-  fetch(`${process.env.BACKEND_URL}/emails`, {
+  fetch("https://e-validify-backend.onrender.com/emails", {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })

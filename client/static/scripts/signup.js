@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  require("dotenv").config();
   document.querySelector('form#signup').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         password: password
       };
 
-      fetch(`${process.env.BACKEND_URL}/register`, {
+      fetch('https://e-validify-backend.onrender.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

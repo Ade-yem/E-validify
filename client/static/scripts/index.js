@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-  require("dotenv").config();
   // Get the sign up, sign in, and log out buttons
   const signUpBtn = document.querySelector('.signup-btn');
   const signInBtn = document.querySelector('.signin-btn');
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.querySelector('.logout-btn').addEventListener('click', function () {
-    fetch(`${process.env.BACKEND_URL}/logout`, {
+    fetch('https://e-validify-backend.onrender.com/logout', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -58,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const data = {
       email: email
     };
-    fetch(`${process.env.BACKEND_URL}/validate`, {
+    fetch('https://e-validify-backend.onrender.com/validate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
