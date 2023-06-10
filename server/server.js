@@ -143,15 +143,15 @@ app.post('/validate', async (req, res) => {
     // use axios to get the response from the API
     const response = await axios.request(options);
     const result = await response.data;
-    console.log(result);
     if (isAuthenticated) {
       // Save the email to the database
       const newEmail = await Email.create({
         email: email,
-        user: req.session.user._id,
+        user_id: req.session.user._id,
         details: result
       });
       if (newEmail) {
+        console.log(newEmail);
         return res.json({ message: 'Email validated successfully', result: result });
       } else {
         return res.status(500).json({ message: 'Internal server error' });
