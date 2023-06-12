@@ -1,5 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-  document.querySelector('form#login').addEventListener('submit', function(event) {
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('form#login').addEventListener('submit', function (event) {
     event.preventDefault();
     const login = document.querySelector('form#login');
     const email = login.elements.email.value;
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch('https://e-validify-backend.onrender.com/login', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
@@ -20,19 +20,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (response.ok) {
           console.log('Login successful');
           window.localStorage.setItem('loggedIn', true);
-          window.localStorage.setItem('username', data.username);
-          window.localStorage.setItem('user_id', data.id);
-          window.location.href = 'index.html';
         }
         return response.json();
       })
       .then(data => {
-        // console.log(data);
-        window.localStorage.setItem('username', data.username);
-        window.localStorage.setItem('user_id', data.id);
+        window.localStorage.setItem('username', data.user.username);
+        window.localStorage.setItem('user_id', data.user._id);
       })
       .catch(error => {
         console.error('Error: ', error);
+      })
+      .finally(() => {
+        if (window.localStorage.getItem('loggedIn')) {
+          window.location.href = 'index.html';
+        }
       });
   });
 });

@@ -28,18 +28,23 @@ document.addEventListener('DOMContentLoaded', function () {
           if (response.status === 201) {
             console.log('Sign up successful');
             window.localStorage.setItem('loggedIn', true);
-            window.localStorage.setItem('username', data.username);
-            window.localStorage.setItem('user_id', data.id);
-            window.location.href = 'index.html';
-          } else {
-            console.log('Sign up failed');
+            return response.json();
           }
+        })
+        .then(data => {
+          window.localStorage.setItem('username', data.user.username);
+          window.localStorage.setItem('user_id', data.user._id);
         })
         .catch(error => {
           console.error('Error: ', error);
+        })
+        .finally(() => {
+          if (window.localStorage.getItem('loggedIn')) {
+            form.reset();
+            window.location.href = 'index.html';
+          }
         });
 
-      form.reset();
     } else {
       document.querySelector('div.error').innerHTML = 'Password mismatch';
     }

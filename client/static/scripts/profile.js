@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
           window.localStorage.removeItem('loggedIn');
           window.localStorage.removeItem('username');
           window.localStorage.removeItem('user_id');
+          window.location.replace = 'index.html';
           // reload the page
           window.location.reload();
-          window.location.replace = 'index.html';
         }
         return response.json();
       })
@@ -24,12 +24,16 @@ document.addEventListener('DOMContentLoaded', function () {
       )
       .catch(error => {
         console.error('Error: ', error);
+      })
+      .finally(() => {
+        window.location.href = 'index.html';
       }
       );
   });
 
   // Get user data
-  fetch("https://e-validify-backend.onrender.com/user", {
+  const user_id = window.localStorage.getItem('user_id');
+  fetch(`https://e-validify-backend.onrender.com/user/${user_id}`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
@@ -39,13 +43,14 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     })
     .then(data => {
-      document.querySelector('p.user-email').innerHTML = `Email: ${data.email}`;
-      document.querySelector('#username').innerHTML = `Name: ${data.name}`;
+      document.querySelector('p.user-email').innerHTML = `Email: ${data.user.email}`;
+      document.querySelector('p.user-name').innerHTML = `Name: ${data.user.name}`;
     })
     .catch(error => {
       console.error('Error: ', error);
     });
-  fetch("https://e-validify-backend.onrender.com/emails", {
+
+  fetch(`https://e-validify-backend.onrender.com/user/${user_id}/emails`, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' }
   })
