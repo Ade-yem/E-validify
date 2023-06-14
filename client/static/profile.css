@@ -82,6 +82,10 @@
   /* height: 200px; */
   padding: 40px;
 }
+#emails h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
   ul.emails {
     list-style-type: none;
     padding: 10px;
@@ -93,6 +97,8 @@
   }
   div.email-details {
     visibility: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   footer {
     background-color: #47d052;

@@ -24,8 +24,6 @@ E-Validify is a web application that allows users to register, login, and valida
 
 - Node.js: JavaScript runtime environment for server-side development.
 - Express.js: Web application framework for building RESTful APIs.
-- Sequelize ORM: Object-Relational Mapping library for database interactions.
-- MySQL: Relational database management system for storing user and email data.
 - bcrypt: Library for password hashing and verification.
 
 ## Installation

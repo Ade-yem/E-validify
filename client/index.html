@@ -5,21 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>E-validify</title>
     <link rel="stylesheet" href="static/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&display=swap" rel="stylesheet">
-    <script src="static/scripts/index.js"></script>
   </head>
   <body>
     <header>
-      <h1 style="cursor: pointer;" onclick="window.location.href='index.html'">E-Validify</h1>
       <nav>
+        <h1 onclick="window.location.href='index.html'">E-Validify</h1>
         <ul>
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="help.html">Help</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
     		  <li><a href="login.html" class="signin-btn">Sign In</a></li>
-          <li><button class="logout-btn">Log out</button></li>
-			    <li><div class="avatar">&nbsp;</div></li>
+          <li><a href="#" class="logout-btn">Log out</a></li>
+			    <li><a class="avatar">&nbsp;</a></li>
         </ul>
+        <div class="menu" onclick="openNav()">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="overlay">
+          <div class="close" onclick="closeNav()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <div class="overlay-content">
+            <a href="#" class="avatar">&nbsp;</a>
+            <a href="signup.html" class="signup-btn">Sign Up</a>
+            <a href="login.html" class="signin-btn">Sign In</a>
+            <a href="#" class="logout-btn">Logout</a>
+            
+          </div>
+        </div>
       </nav>
     </header>
     <main>
@@ -38,15 +55,25 @@
             placeholder="Enter your email address"
             required
           />
-          <button type="submit">Submit</button>
+          <button type="submit" class="btn">Submit</button>
         </form>
       </section>
-      <section id="result">
-        
+      <section id="result"> 
       </section>
     </main>
     <footer>
       <p>&copy; 2023    E-validify. All rights reserved.</p>
     </footer>
+    <script src="static/scripts/index.js"></script>
+    <script>
+      function openNav() {
+        document.querySelector(".overlay").style.width = "300px";
+        document.querySelector("main").style.marginRight = "300px";
+      }
+      function closeNav() {
+        document.querySelector(".overlay").style.width = "0";
+        document.querySelector("main").style.marginRight = "0";
+      }
+    </script>
   </body>
 </html>

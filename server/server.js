@@ -133,11 +133,10 @@ app.post('/logout', async (req, res) => {
 // Email validation endpoint
 app.post('/validate', async (req, res) => {
   try {
-    const { email } = req.body;
+    const { email, userId } = req.body;
     // check if user is authenticated
-    console.log(req.session.user);
+    // console.log(req.session.user);
     const isAuthenticated = req.session.user !== undefined;
-    console.log(isAuthenticated);
     // Create url options for the fetch request
     const options = {
       method: 'GET',
@@ -153,15 +152,19 @@ app.post('/validate', async (req, res) => {
     // use axios to get the response from the API
     const response = await axios.request(options);
     const result = await response.data;
-    if (isAuthenticated) {
+    if (isAuthenticated || userId) {
       // Save the email to the database
-      console.log(req.session.user._id);
+
+      const id = userId || req.session.user._id;
+      console.log(id)
       const updatedUser = await User.findByIdAndUpdate(
-        req.session.user._id,
+        id,
         { $push: { emails: { email: email, details: result } } },
         { new: true }
       );
+      console.log(updatedUser);
       if (updatedUser) {
+        console.log("saved")
         return res.json({ message: 'Email validated successfully', result: result });
       } else {
         return res.status(500).json({ message: 'Internal server error' });
@@ -176,13 +179,7 @@ app.post('/validate', async (req, res) => {
 });
 
 // Get User endpoint with userid
-app.get('/user/:id', async(req, res) => {
-  // const isAuthenticated = req.session.user !== undefined;
-  // if (isAuthenticated) {
-  //   res.json({ message: 'User authenticated', user: req.session.user });
-  // } else {
-  //   res.status(401).json({ message: 'User not authenticated' });
-  // }
+app.get('/user/:id', async (req, res) => {
   try {
     const userId = req.params.id;
     const user = await User.findById(userId);
@@ -191,29 +188,6 @@ app.get('/user/:id', async(req, res) => {
     } else {
       res.status(404).json({ message: 'User not found' });
     }
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: 'Internal server error' });
-  }
-});
-
-// Get emails
-app.get('emails/:id', async (req, res) => {
-  try {
-    // const isAuthenticated = req.session.user !== undefined;
-    // if (isAuthenticated) {
-    const userId = req.params.id;
-    console.log(userId);
-    const user = await User.findById(userId);
-    console.log(user);
-    if (user && user.length !== 0) {
-      return res.json({ message: 'Emails retrieved successfully', emails: user.emails });
-    } else {
-      return res.status(500).json({ message: 'Internal server error' });
-    }
-    // } else {
-    //   return res.status(401).json({ message: 'Not logged in' });
-    // }
   } catch (error) {
     console.log(error);
     res.status(500).json({ message: 'Internal server error' });

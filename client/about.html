@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Validify - Secure Email Validation Made Easy</title>
+    <link rel="stylesheet" href="static/about.css" />
+    <!-- link to fontawesome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <h1 onclick="window.location.href ='index.html'">E-Validify</h1>
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="signup.html" class="nav-btn">Get Started</a></li>
+        </ul>
+
+        <div class="menu" onclick="openNav()">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </div>
+        <div class="overlay">
+          <div class="close" onclick="closeNav()">
+            <i class="fa fa-times" aria-hidden="true"></i>
+          </div>
+          <div class="overlay-content">
+            <a href="#features">Features</a>
+            <a href="signup.html">Get Started</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="hero-image">
+        <div class="container">
+          <h1>E-Validify</h1>
+          <p>Validate your emails with ease</p>
+          <a href="signup.html" class="btn">Get Started</a>
+        </div>
+      </section>
+
+      <section id="features">
+        <div class="container">
+          <h2>Key Features</h2>
+
+          <div class="feature">
+            <div class="feature-image">
+              <img src="./static/images/result.jpeg" alt="Feature Image 1" />
+            </div>
+            <div class="feature-content">
+              <h3>Real-time Validation</h3>
+              <p>Get instant feedback on the validity of your emails.</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-image">
+              <img src="./static/images/profile.jpeg" alt="Feature Image 2" />
+            </div>
+            <div class="feature-content">
+              <h3>History Tracking</h3>
+              <p>
+                Keep track of all your validated emails for future reference.
+              </p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <div class="feature-image">
+              <img src="./static/images/home.jpeg" alt="Feature Image 3" />
+            </div>
+            <div class="feature-content">
+              <h3>User-friendly Interface</h3>
+              <p>
+                Intuitive and easy-to-use interface for a seamless experience.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-to">
+        <div class="container">
+          <h3>How to use E-Validify</h3>
+          <p>
+            To use E-Validify, simply enter the email address you want to
+            validate into the form below and click "Validate."
+          </p>
+          <form action="/validate" method="post">
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter email address"
+              class="form-control"
+            />
+            <input type="submit" value="Validate" class="btn" disabled />
+          </form>
+        </div>
+      </section>
+
+      <section id="signup">
+        <div class="container">
+          <h3>Get Started Today</h3>
+          <p>
+            Join thousands of users who have already experienced the power of
+            E-Validify. Sign up for an account and start validating your emails
+            with confidence.
+          </p>
+          <a href="signup.html" class="btn">Sign Up Now</a>
+        </div>
+      </section>
+
+      <section id="about" class="about-section">
+        <div class="container">
+          <h2>About</h2>
+          <div class="about-us">
+            <p>
+              The E-Validify project was inspired by our team's collective
+              passion for email validation and the need for a reliable tool to
+              verify the integrity of email addresses. It started as a Portfolio
+              Project at
+              <a href="https://www.alxafrica.com/software-engineering/"
+                class="link">ALX software engineering</a
+              >, where we were tasked with creating a practical application that
+              solves a real-world problem.
+            </p>
+            <p>
+              Throughout the development process, we collaborated closely as a
+              team, leveraging our diverse skills and knowledge to create a
+              robust and user-friendly email validation tool. The project has
+              been a great learning experience, allowing us to apply the
+              technologies and principles we learned during our studies.
+            </p>
+          </div>
+          <h4>Connect with our team members:</h4>
+          <ul class="team-members">
+            <li class="team-member">
+              <div class="member-image">
+                <img src="./static/images/adeyemi.png" alt="Adeyemi" />
+              </div>
+              <div class="member-content">
+                <h3>Adeyemi Adejumo</h3>
+                <p>Backend developer</p>
+                <div class="links">
+                  <a
+                    href="https://www.linkedin.com/in/adeyemi223"
+                    target="_blank"
+                    ><img
+                      src="./static/images/3d-linkedin-blue-logo-16274.svg"
+                      class="social"
+                    />
+                    Linkedin</a
+                  >
+                  <a href="https://github.com/Ade-yem" target="_blank"
+                    ><img
+                      class="social"
+                      src="./static/images/3d-github-logo-16293.svg"
+                    />
+                    Github</a
+                  >
+                  <a href="https://twitter.com/AdehNaija" target="_blank"
+                    ><img
+                      class="social"
+                      src="./static/images/3d-twitter-blue-logo-16273.svg"
+                    />
+                    Twitter</a
+                  >
+                </div>
+              </div>
+            </li>
+            <li class="team-member">
+              <div class="member-image">
+                <img
+                  src="./static/images/princewill.png"
+                  alt="Princewill"
+                  srcset=""
+                />
+              </div>
+              <div class="member-content">
+                <h3>Princewill Onyema</h3>
+                <p>Frontend Developer</p>
+                <div class="links">
+                  <a
+                    href="https://www.linkedin.com/in/princeodi"
+                    target="_blank"
+                    ><img
+                      class="social"
+                      src="./static/images/3d-linkedin-blue-logo-16274.svg"
+                    />
+                    Linkedin</a
+                  >
+                  <a href="https://github.com/Princeodi" target="_blank"
+                    ><img
+                      class="social"
+                      src="./static/images/3d-github-logo-16293.svg"
+                    />
+                    Github</a
+                  >
+                  <a href="https://twitter.com/PrincewillOny11" target="_blank"
+                    ><img
+                      class="social"
+                      src="./static/images/3d-twitter-blue-logo-16273.svg"
+                    />
+                    Twitter</a
+                  >
+                </div>
+              </div>
+            </li>
+          </ul>
+          <p style="margin-top: 15px">
+            View the project repository on
+            <a
+              class="link"
+              href="https://github.com/Ade-yem/E-Validify"
+              target="_blank"
+              >GitHub</a
+            >.
+          </p>
+        </div>
+      </section>
+      <section id="contact">
+        <div class="container">
+          <h3>Contact Us</h3>
+          <p>
+            Have questions or need support? Our team is here to help. Reach out
+            to us at
+            <a href="mailto:support@e-validify.com" class="link"
+              >support@e-validify.com</a
+            >
+            or visit our Help Center for more information.
+          </p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <p>&copy; 2023 E-Validify. All rights reserved.</p>
+      </div>
+    </footer>
+    <script>
+      function openNav() {
+        document.querySelector(".overlay").style.width = "300px";
+        document.querySelector("main").style.marginRight = "300px";
+      }
+      function closeNav() {
+        document.querySelector(".overlay").style.width = "0";
+        document.querySelector("main").style.marginRight = "0";
+      }
+    </script>
+  </body>
+</html>

@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const signUpBtn = document.querySelector('.signup-btn');
   const signInBtn = document.querySelector('.signin-btn');
   const logOutBtn = document.querySelector('.logout-btn');
-  const avatar = document.querySelector('div.avatar');
+  const avatar = document.querySelector('.avatar');
 
   // Check if the user is logged in
   const isLoggedIn = window.localStorage.getItem('loggedIn');
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
           console.log('Logged out');
           window.localStorage.removeItem('loggedIn');
           window.localStorage.removeItem('username');
-          window.localStorage.removeItem('user_id');
+          window.localStorage.removeItem('userId');
           window.location.replace = 'index.html';
           // reload the page
           window.location.reload();
@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const ignore = ['possible_typo', 'last_changed_at'];
     const appendData = (data) => {
+      document.querySelector('main').style.height = '100%';
       const container = document.querySelector('section#result');
       container.innerHTML = '';
       container.appendChild(document.createElement('h3'));

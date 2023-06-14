@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
       })
       .then(data => {
         window.localStorage.setItem('username', data.user.username);
-        window.localStorage.setItem('user_id', data.user._id);
+        window.localStorage.setItem('userId', data.user._id);
       })
       .catch(error => {
         console.error('Error: ', error);
